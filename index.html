@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheLightPress Sidebar</title>
+
+<style>
+/* ============================================================
+   THELIGHTPRESS SIDEBAR
+   ------------------------------------------------------------
+   HOW IT WORKS
+   - Markup never changes.
+   - Every visual is controlled by CSS custom properties
+     declared on .tlp-sidebar.
+   - Add a theme class (e.g. "tlp-theme-dark") to restyle
+     the whole sidebar without touching HTML.
+   - Safe to drop into Blogger, WordPress, static sites, etc.
+   ============================================================ */
+
+/* -------- 1. DEFAULT THEME (light) ------------------------- */
+.tlp-sidebar {
+  /* colors */
+  --tlp-bg:              #ffffff;
+  --tlp-surface:         #f3f8fd;
+  --tlp-border:          #e1edf8;
+  --tlp-text:            #12345b;
+  --tlp-text-soft:       #647b94;
+  --tlp-text-muted:      #8aa0b8;
+  --tlp-accent:          #1476d4;
+  --tlp-accent-soft:     #f0f7ff;
+  --tlp-hover-bg:        #f0f7ff;
+
+  /* typography */
+  --tlp-font:            Arial, Helvetica, sans-serif;
+  --tlp-brand-size:      30px;
+  --tlp-brand-weight:    700;
+  --tlp-brand-spacing:   -1px;
+  --tlp-nav-size:        16px;
+  --tlp-nav-weight:      500;
+  --tlp-label-size:      11px;
+  --tlp-label-spacing:   2px;
+  --tlp-tagline-size:    13px;
+  --tlp-feature-title:   18px;
+  --tlp-feature-text:    13px;
+
+  /* shape & spacing */
+  --tlp-radius:          8px;
+  --tlp-radius-card:     12px;
+  --tlp-pad-y:           32px;
+  --tlp-pad-x:           26px;
+  --tlp-gap:             3px;
+  --tlp-nav-pad-y:       14px;
+  --tlp-nav-pad-x:       10px;
+  --tlp-hover-shift:     6px;
+
+  /* layout */
+  --tlp-width:           360px;
+  --tlp-min-height:      100vh;
+
+  /* effects */
+  --tlp-shadow:          none;
+  --tlp-transition:      0.2s ease;
+
+  /* ---- base ---- */
+  font-family: var(--tlp-font);
+  background: var(--tlp-bg);
+  color: var(--tlp-text);
+  width: 100%;
+  max-width: var(--tlp-width);
+  min-height: var(--tlp-min-height);
+  padding: var(--tlp-pad-y) var(--tlp-pad-x);
+  box-shadow: var(--tlp-shadow);
+  box-sizing: border-box;
+}
+
+.tlp-sidebar *,
+.tlp-sidebar *::before,
+.tlp-sidebar *::after {
+  box-sizing: border-box;
+}
+
+/* -------- 2. BRAND --------------------------------------- */
+.tlp-brand {
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--tlp-border);
+  margin-bottom: 25px;
+}
+
+.tlp-brand-name {
+  margin: 0;
+  font-size: var(--tlp-brand-size);
+  font-weight: var(--tlp-brand-weight);
+  letter-spacing: var(--tlp-brand-spacing);
+  color: var(--tlp-text);
+  line-height: 1.15;
+}
+
+.tlp-brand-name span {
+  color: var(--tlp-accent);
+}
+
+.tlp-tagline {
+  margin: 8px 0 0;
+  font-size: var(--tlp-tagline-size);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--tlp-text-muted);
+}
+
+/* -------- 3. NAVIGATION ---------------------------------- */
+.tlp-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tlp-menu li {
+  margin: var(--tlp-gap) 0;
+}
+
+.tlp-menu a {
+  display: block;
+  padding: var(--tlp-nav-pad-y) var(--tlp-nav-pad-x);
+  color: var(--tlp-text);
+  text-decoration: none;
+  font-size: var(--tlp-nav-size);
+  font-weight: var(--tlp-nav-weight);
+  border-radius: var(--tlp-radius);
+  transition: background var(--tlp-transition),
+              color var(--tlp-transition),
+              padding var(--tlp-transition);
+}
+
+.tlp-menu a:hover {
+  background: var(--tlp-hover-bg);
+  color: var(--tlp-accent);
+  padding-left: calc(var(--tlp-nav-pad-x) + var(--tlp-hover-shift));
+}
+
+/* -------- 4. SECTION LABEL ------------------------------- */
+.tlp-section-title {
+  margin: 32px 10px 10px;
+  font-size: var(--tlp-label-size);
+  font-weight: 700;
+  letter-spacing: var(--tlp-label-spacing);
+  text-transform: uppercase;
+  color: var(--tlp-text-muted);
+}
+
+/* -------- 5. FEATURE CARD -------------------------------- */
+.tlp-feature {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--tlp-surface);
+  border-radius: var(--tlp-radius-card);
+  border: 1px solid var(--tlp-border);
+}
+
+.tlp-feature-title {
+  margin: 0 0 8px;
+  font-size: var(--tlp-feature-title);
+  color: var(--tlp-text);
+}
+
+.tlp-feature-text {
+  margin: 0;
+  font-size: var(--tlp-feature-text);
+  line-height: 1.6;
+  color: var(--tlp-text-soft);
+}
+
+/* -------- 6. FOOTER -------------------------------------- */
+.tlp-footer {
+  margin-top: 35px;
+  padding-top: 20px;
+  border-top: 1px solid var(--tlp-border);
+  font-size: 12px;
+  color: var(--tlp-text-muted);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   7. EXAMPLE THEMES — drop one of these classes on
+      <div class="tlp-sidebar tlp-theme-dark"> to restyle.
+      Copy and edit to create your own.
+   ============================================================ */
+
+/* DARK THEME */
+.tlp-sidebar.tlp-theme-dark {
+  --tlp-bg:           #0f1c2e;
+  --tlp-surface:      #16263c;
+  --tlp-border:       #22374f;
+  --tlp-text:         #e6eef8;
+  --tlp-text-soft:    #a4b8ce;
+  --tlp-text-muted:   #6d839c;
+  --tlp-accent:       #4ea8ff;
+  --tlp-hover-bg:     #1c2f47;
+}
+
+/* MINIMAL / MONOCHROME THEME */
+.tlp-sidebar.tlp-theme-minimal {
+  --tlp-bg:           #ffffff;
+  --tlp-surface:      #fafafa;
+  --tlp-border:       #eeeeee;
+  --tlp-text:         #111111;
+  --tlp-text-soft:    #666666;
+  --tlp-text-muted:   #999999;
+  --tlp-accent:       #111111;
+  --tlp-hover-bg:     #f5f5f5;
+  --tlp-radius:       0;
+  --tlp-radius-card:  0;
+  --tlp-brand-weight: 600;
+  --tlp-brand-spacing: 0;
+}
+
+/* SOFT / PASTEL THEME */
+.tlp-sidebar.tlp-theme-soft {
+  --tlp-bg:           #fdf6f0;
+  --tlp-surface:      #fbeadb;
+  --tlp-border:       #f1d9c4;
+  --tlp-text:         #4a3226;
+  --tlp-text-soft:    #8a6a58;
+  --tlp-text-muted:   #b69a88;
+  --tlp-accent:       #e07a5f;
+  --tlp-hover-bg:     #f7e4d5;
+  --tlp-radius:       12px;
+  --tlp-radius-card:  16px;
+}
+
+/* BOLD / EDITORIAL THEME */
+.tlp-sidebar.tlp-theme-bold {
+  --tlp-bg:           #ffffff;
+  --tlp-surface:      #0f2338;
+  --tlp-border:       #d8e2ec;
+  --tlp-text:         #0f2338;
+  --tlp-text-soft:    #4a6a8a;
+  --tlp-text-muted:   #8ba3bd;
+  --tlp-accent:       #ff5a1f;
+  --tlp-hover-bg:     #fff2ec;
+  --tlp-radius:       0;
+  --tlp-radius-card:  0;
+  --tlp-brand-weight: 800;
+  --tlp-brand-size:   34px;
+  --tlp-nav-size:     15px;
+  --tlp-nav-weight:   600;
+  --tlp-label-size:   10px;
+  --tlp-label-spacing: 3px;
+}
+
+/* Feature card inside dark / bold themes needs inverted text */
+.tlp-theme-bold .tlp-feature-title { color: #ffffff; }
+.tlp-theme-bold .tlp-feature-text  { color: #b8c9db; }
+
+/* ============================================================
+   8. LAYOUT / RESPONSIVE
+   ============================================================ */
+.tlp-sidebar.is-compact {
+  --tlp-pad-y: 20px;
+  --tlp-pad-x: 18px;
+  --tlp-nav-pad-y: 11px;
+  --tlp-brand-size: 26px;
+}
+
+@media (max-width: 420px) {
+  .tlp-sidebar {
+    --tlp-pad-y: 24px;
+    --tlp-pad-x: 20px;
+    --tlp-brand-size: 26px;
+    --tlp-nav-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     SIDEBAR MARKUP — never needs to change.
+     Change look by adding/removing a theme class:
+       class="tlp-sidebar"
+       class="tlp-sidebar tlp-theme-dark"
+       class="tlp-sidebar tlp-theme-minimal"
+       class="tlp-sidebar tlp-theme-soft"
+       class="tlp-sidebar tlp-theme-bold"
+       class="tlp-sidebar is-compact"
+     ============================================================ -->
+
+<aside class="tlp-sidebar">
+
+  <!-- Brand -->
+  <div class="tlp-brand">
+    <h2 class="tlp-brand-name">
+      TheLight<span>Press</span>
+    </h2>
+    <p class="tlp-tagline">
+      Stories • Ideas • Perspectives
+    </p>
+  </div>
+
+  <!-- Primary nav -->
+  <ul class="tlp-menu">
+    <li><a href="/">Home</a></li>
+    <li><a href="/search/label/Stories">Stories</a></li>
+    <li><a href="/search/label/Ideas">Ideas</a></li>
+    <li><a href="/search/label/Opinions">Opinions</a></li>
+    <li><a href="/search/label/Reflections">Reflections</a></li>
+  </ul>
+
+  <!-- Section label -->
+  <div class="tlp-section-title">
+    Explore
+  </div>
+
+  <!-- Secondary nav -->
+  <ul class="tlp-menu">
+    <li><a href="/search">Search</a></li>
+    <li><a href="/p/about.html">About TheLightPress</a></li>
+    <li><a href="/p/contact.html">Contact</a></li>
+  </ul>
+
+  <!-- Feature card -->
+  <div class="tlp-feature">
+    <h3 class="tlp-feature-title">
+      Read. Think. Grow.
+    </h3>
+    <p class="tlp-feature-text">
+      Stories and ideas written to make you pause,
+      think differently, and see the world from another
+      perspective.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="tlp-footer">
+    © TheLightPress
+  </div>
+
+</aside>
+
+</body>
+</html>
