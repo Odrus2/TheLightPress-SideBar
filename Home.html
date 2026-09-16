@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TheLightPress</title>
+
+    <meta name="description"
+          content="TheLightPress — stories, ideas, reflections and perspectives worth reading.">
+
+    <style>
+
+        /* ==============================
+           THELIGHTPRESS — GLOBAL STYLES
+           ============================== */
+
+        :root {
+            --navy: #12345b;
+            --blue: #1476d4;
+            --pale-blue: #f3f8fd;
+            --text: #263b50;
+            --muted: #71859a;
+            --line: #e3ebf3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           HEADER
+           ============================== */
+
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 22px 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: var(--navy);
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -1.4px;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .tagline {
+            margin-top: 2px;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+
+            color: var(--navy);
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            color: var(--blue);
+        }
+
+
+        /* ==============================
+           HERO
+           ============================== */
+
+        .hero {
+            max-width: 1180px;
+            margin: auto;
+            padding: 82px 28px 70px;
+        }
+
+        .kicker {
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            margin: 15px 0 20px;
+
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(44px, 7vw, 78px);
+            font-weight: 500;
+            line-height: 1.02;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0;
+
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.75;
+        }
+
+        .rule {
+            width: 65px;
+            height: 3px;
+            margin-top: 30px;
+            background: var(--blue);
+        }
+
+
+        /* ==============================
+           FEATURED STORY
+           ============================== */
+
+        .featured {
+            max-width: 1180px;
+            margin: 0 auto 75px;
+            padding: 0 28px;
+        }
+
+        .feature-card {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+
+            min-height: 390px;
+            overflow: hidden;
+
+            background: var(--pale-blue);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+        }
+
+        .feature-image {
+            min-height: 390px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(18, 52, 91, 0.95),
+                    rgba(20, 118, 212, 0.72)
+                ),
+                url("https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80")
+                center / cover;
+        }
+
+        .feature-content {
+            padding: 48px 42px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .category {
+            color: var(--blue);
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .feature-content h2 {
+            margin: 12px 0;
+
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 35px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .feature-content p {
+            margin: 0 0 22px;
+            color: var(--muted);
+        }
+
+        .read {
+            color: var(--blue);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        /* ==============================
+           GENERAL SECTIONS
+           ============================== */
+
+        .section {
+            max-width: 1180px;
+            margin: 0 auto 75px;
+            padding: 0 28px;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-head h2 {
+            margin: 0;
+
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .section-head a {
+            color: var(--blue);
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           STORY GRID
+           ============================== */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 27px;
+        }
+
+        .story {
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .story-image {
+            height: 205px;
+            margin-bottom: 19px;
+
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 10px;
+        }
+
+        .story-image.one {
+            background-image:
+                url("https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .story-image.two {
+            background-image:
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .story-image.three {
+            background-image:
+                url("https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=900&q=80");
+        }
+
+        .story h3 {
+            margin: 7px 0 9px;
+
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23px;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .story p {
+            margin: 0 0 13px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .meta {
+            color: #91a0ae;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        /* ==============================
+           STATEMENT
+           ============================== */
+
+        .statement {
+            margin-bottom: 75px;
+            padding: 70px 28px;
+
+            background: var(--pale-blue);
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+
+            text-align: center;
+        }
+
+        .statement p {
+            max-width: 800px;
+            margin: auto;
+
+            color: var(--navy);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(27px, 4vw, 42px);
+            font-style: italic;
+            line-height: 1.25;
+        }
+
+        .statement small {
+            display: block;
+            margin-top: 20px;
+
+            color: var(--blue);
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
+        /* ==============================
+           CATEGORIES
+           ============================== */
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .categories a {
+            padding: 10px 17px;
+
+            color: var(--navy);
+            font-size: 13px;
+
+            border: 1px solid var(--line);
+            border-radius: 30px;
+        }
+
+        .categories a:hover {
+            color: var(--blue);
+            background: var(--pale-blue);
+            border-color: var(--blue);
+        }
+
+
+        /* ==============================
+           FOOTER
+           ============================== */
+
+        .footer {
+            margin-top: 80px;
+
+            color: #dce9f5;
+            background: #102f50;
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: auto;
+            padding: 45px 28px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: #69aef0;
+        }
+
+        .footer p {
+            max-width: 430px;
+            color: #a9bfd3;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: #69aef0;
+        }
+
+        .copyright {
+            max-width: 1180px;
+            margin: auto;
+            padding: 18px 28px;
+
+            color: #91aac0;
+            font-size: 11px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+
+        /* ==============================
+           MOBILE
+           ============================== */
+
+        @media (max-width: 800px) {
+
+            .header-inner {
+                padding: 18px 20px;
+            }
+
+            .nav a {
+                display: none;
+            }
+
+            .hero {
+                padding: 58px 20px 50px;
+            }
+
+            .featured,
+            .section {
+                padding: 0 20px;
+            }
+
+            .feature-card {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-image {
+                min-height: 230px;
+            }
+
+            .feature-content {
+                padding: 32px 27px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 42px;
+            }
+
+            .story-image {
+                height: 230px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                padding: 38px 20px 25px;
+            }
+
+            .copyright {
+                padding: 18px 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         HEADER
+         ============================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <div>
+                <a class="logo" href="/">
+                    TheLight<span>Press</span>
+                </a>
+
+                <div class="tagline">
+                    Stories • Ideas • Perspectives
+                </div>
+            </div>
+
+
+            <nav class="nav">
+
+                <a href="/">Home</a>
+
+                <a href="/search/label/Stories">
+                    Stories
+                </a>
+
+                <a href="/search/label/Ideas">
+                    Ideas
+                </a>
+
+                <a href="/search/label/Opinions">
+                    Opinions
+                </a>
+
+                <a href="/search">
+                    Search
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==============================
+         MAIN CONTENT
+         ============================== -->
+
+    <main>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="kicker">
+                Welcome to TheLightPress
+            </div>
+
+            <h1>
+                Stories that make you
+                <span>stop and think.</span>
+            </h1>
+
+            <p>
+                Stories, ideas, reflections and perspectives about
+                life, people, society and the things worth thinking about.
+            </p>
+
+            <div class="rule"></div>
+
+        </section>
+
+
+
+        <!-- FEATURED STORY -->
+
+        <section class="featured">
+
+            <article class="feature-card">
+
+                <div class="feature-image"></div>
+
+
+                <div class="feature-content">
+
+                    <div class="category">
+                        Featured Story
+                    </div>
+
+                    <h2>
+                        The things we learn when life does not go according to plan
+                    </h2>
+
+                    <p>
+                        Sometimes the moments we never planned become
+                        the ones that teach us the most.
+                    </p>
+
+                    <a class="read" href="#">
+                        Read the story →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- LATEST STORIES -->
+
+        <section class="section">
+
+            <div class="section-head">
+
+                <h2>
+                    Latest Stories
+                </h2>
+
+                <a href="/search/label/Stories">
+                    View all stories →
+                </a>
+
+            </div>
+
+
+            <div class="grid">
+
+
+                <!-- STORY 1 -->
+
+                <article class="story">
+
+                    <div class="story-image one"></div>
+
+                    <div class="category">
+                        Stories
+                    </div>
+
+                    <h3>
+                        What happens when we finally begin to understand ourselves?
+                    </h3>
+
+                    <p>
+                        Some lessons take years to understand.
+                        Others arrive quietly in ordinary moments.
+                    </p>
+
+                    <div class="meta">
+                        TheLightPress · 6 min read
+                    </div>
+
+                </article>
+
+
+
+                <!-- STORY 2 -->
+
+                <article class="story">
+
+                    <div class="story-image two"></div>
+
+                    <div class="category">
+                        Reflections
+                    </div>
+
+                    <h3>
+                        The value of taking a different path
+                    </h3>
+
+                    <p>
+                        There is more than one way to arrive at
+                        a meaningful destination.
+                    </p>
+
+                    <div class="meta">
+                        TheLightPress · 5 min read
+                    </div>
+
+                </article>
+
+
+
+                <!-- STORY 3 -->
+
+                <article class="story">
+
+                    <div class="story-image three"></div>
+
+                    <div class="category">
+                        Ideas
+                    </div>
+
+                    <h3>
+                        Why some questions are more important than answers
+                    </h3>
+
+                    <p>
+                        Asking better questions can change the way
+                        we see problems, people and possibilities.
+                    </p>
+
+                    <div class="meta">
+                        TheLightPress · 4 min read
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATEMENT -->
+
+        <section class="statement">
+
+            <p>
+                “A good story does not simply tell you what happened.
+                It gives you something to think about.”
+            </p>
+
+            <small>
+                TheLightPress
+            </small>
+
+        </section>
+
+
+
+        <!-- EXPLORE -->
+
+        <section class="section">
+
+            <div class="section-head">
+
+                <h2>
+                    Explore
+                </h2>
+
+            </div>
+
+
+            <div class="categories">
+
+                <a href="/search/label/Stories">
+                    Stories
+                </a>
+
+                <a href="/search/label/Ideas">
+                    Ideas
+                </a>
+
+                <a href="/search/label/Opinions">
+                    Opinions
+                </a>
+
+                <a href="/search/label/Reflections">
+                    Reflections
+                </a>
+
+                <a href="/search/label/Philosophy">
+                    Philosophy
+                </a>
+
+                <a href="/search/label/Life">
+                    Life
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==============================
+         FOOTER
+         ============================== -->
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div>
+
+                <div class="footer-logo">
+                    TheLight<span>Press</span>
+                </div>
+
+                <p>
+                    Stories, ideas and perspectives worth reading,
+                    sharing and thinking about.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/p/about.html">
+                    About
+                </a>
+
+                <a href="/p/contact.html">
+                    Contact
+                </a>
+
+                <a href="/p/privacy-policy.html">
+                    Privacy
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © TheLightPress. All rights reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
