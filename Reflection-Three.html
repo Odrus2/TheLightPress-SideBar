@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raised By A Wolf | TheLightPress</title>
+    <meta name="description" content="Raised By A Wolf — a reflection on hardship, survival, resilience, independence, and the lessons difficult environments can leave behind.">
+    <meta name="author" content="TheLightPress">
+
+    <style>
+        :root {
+            --blue: #0878d1;
+            --dark-blue: #075b9f;
+            --light-blue: #eef7ff;
+            --text: #1d2733;
+            --muted: #687584;
+            --border: #dce5ed;
+            --white: #ffffff;
+            --background: #f6f9fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1050px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        .brand-tagline {
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            padding: 8px 12px;
+            border-radius: 7px;
+            font-size: 0.9rem;
+            color: #43515f;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--light-blue);
+            color: var(--blue);
+        }
+
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 55px 24px 80px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .category {
+            display: inline-block;
+            margin-bottom: 17px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: var(--light-blue);
+            color: var(--blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1.12;
+            color: #172331;
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .article-meta {
+            margin-top: 18px;
+            color: #7b8793;
+            font-size: 0.86rem;
+        }
+
+        .cover {
+            margin: 38px 0 45px;
+            min-height: 330px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(8, 120, 209, 0.12), rgba(8, 120, 209, 0.02)),
+                var(--white);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 35px;
+        }
+
+        .cover-inner {
+            max-width: 560px;
+        }
+
+        .cover-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .cover-text {
+            color: var(--muted);
+        }
+
+        .article {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(25px, 5vw, 50px);
+        }
+
+        .article p {
+            margin-bottom: 24px;
+            font-size: 1.04rem;
+        }
+
+        .article h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            margin: 42px 0 18px;
+            color: #182634;
+        }
+
+        .article h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+            margin: 30px 0 12px;
+        }
+
+        .lead {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.3rem !important;
+            line-height: 1.65;
+            color: #344454;
+        }
+
+        blockquote {
+            margin: 35px 0;
+            padding: 22px 25px;
+            border-left: 4px solid var(--blue);
+            background: var(--light-blue);
+            color: #29435a;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.3rem;
+            line-height: 1.55;
+        }
+
+        .closing {
+            margin-top: 45px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-footer {
+            margin-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--light-blue);
+        }
+
+        .read-more {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #15202b;
+            color: #c9d2da;
+            padding: 35px 24px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 700px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                justify-content: flex-start;
+                width: 100%;
+            }
+
+            main {
+                padding-top: 38px;
+            }
+
+            .cover {
+                min-height: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+
+            <a href="Home.html" class="brand">
+                <span class="brand-name">TheLightPress</span>
+                <span class="brand-tagline">Stories • Ideas • Perspectives</span>
+            </a>
+
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="Stories.html">Stories</a>
+                <a href="Ideas.html">Ideas</a>
+                <a href="Opinions.html">Opinions</a>
+                <a href="Reflections.html" class="active">Reflections</a>
+                <a href="Search.html">Search</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Article -->
+    <main>
+
+        <div class="article-header">
+
+            <span class="category">Reflection</span>
+
+            <h1>Raised By A Wolf</h1>
+
+            <p class="subtitle">
+                A reflection on hardship, resilience, independence, and the lessons that difficult environments can leave behind.
+            </p>
+
+            <p class="article-meta">
+                TheLightPress · Reflections
+            </p>
+
+        </div>
+
+
+        <!-- Cover area
+             Replace this section with an image later if you want one.
+        -->
+        <div class="cover">
+            <div class="cover-inner">
+                <div class="cover-title">Raised By A Wolf</div>
+                <p class="cover-text">
+                    Some environments teach us how to survive. Growing teaches us how to live beyond them.
+                </p>
+            </div>
+        </div>
+
+
+        <article class="article">
+
+            <p class="lead">
+                The environments that shape us are not always gentle. Sometimes we
+                learn through uncertainty, responsibility, disappointment, or having
+                to become independent earlier than expected.
+            </p>
+
+            <p>
+                Experiences like these can build strength. They can also leave us
+                carrying habits that were useful once but may no longer serve us.
+                Growing means learning to understand both sides.
+            </p>
+
+            <p>
+                The challenge is not simply to survive where we came from. It is to
+                understand what that environment taught us and decide what we want to
+                carry into the future.
+            </p>
+
+
+            <h2>What the Environment Teaches</h2>
+
+            <p>
+                People adapt to their surroundings. When an environment demands
+                alertness, responsibility, patience, or independence, those qualities
+                can become part of the way a person approaches life.
+            </p>
+
+            <p>
+                That adaptation can be valuable. It can teach someone to notice
+                problems, prepare for uncertainty, and keep going when circumstances
+                become difficult.
+            </p>
+
+            <p>
+                But adaptation is not the same as identity. What helped us navigate
+                one environment does not necessarily have to control every environment
+                that comes later.
+            </p>
+
+            <blockquote>
+                “Survival may teach us how to endure. Growth teaches us when we no
+                longer have to live only by survival.”
+            </blockquote>
+
+
+            <h2>Strength Has Many Forms</h2>
+
+            <p>
+                Strength is often associated with toughness, independence, and the
+                ability to handle things alone. Those qualities can matter, but
+                strength can also mean knowing when to listen, when to ask for help,
+                and when to change direction.
+            </p>
+
+            <p>
+                A person does not become weaker simply because they choose a different
+                response from the one they learned growing up.
+            </p>
+
+
+            <h2>The Lessons We Keep</h2>
+
+            <p>
+                Every difficult environment can leave lessons behind. Some are worth
+                keeping. Others deserve to be questioned.
+            </p>
+
+            <h3>Keep the resilience</h3>
+
+            <p>
+                The ability to continue learning through difficulty can become a
+                valuable part of life. Resilience does not mean ignoring challenges;
+                it means finding a constructive way to respond to them.
+            </p>
+
+            <h3>Keep the awareness</h3>
+
+            <p>
+                Difficult experiences can make us more aware of how circumstances
+                affect people. That awareness can become empathy when we use it to
+                understand others rather than simply judge them.
+            </p>
+
+            <h3>Question the defenses</h3>
+
+            <p>
+                Some behaviors begin as protection. Later, they may prevent openness,
+                cooperation, or trust. Recognizing this does not require blaming
+                ourselves. It simply gives us the opportunity to choose differently.
+            </p>
+
+
+            <h2>Beyond Survival</h2>
+
+            <p>
+                There is a difference between being prepared for difficulty and
+                expecting difficulty everywhere.
+            </p>
+
+            <p>
+                A person who has learned to survive may become very good at anticipating
+                what can go wrong. With time, however, there can also be room to notice
+                what is going right.
+            </p>
+
+            <p>
+                Moving beyond survival does not erase the past. It means allowing the
+                future to contain more than the lessons of the past.
+            </p>
+
+
+            <h2>Who Do We Become?</h2>
+
+            <p>
+                We are influenced by where we come from, but influence is not destiny.
+                The people around us, the circumstances we experience, and the lessons
+                we receive all contribute to our development.
+            </p>
+
+            <p>
+                Yet reflection gives us another responsibility: deciding what those
+                influences will mean in the person we become.
+            </p>
+
+            <p>
+                We can acknowledge the environment that shaped us without allowing it
+                to define every choice we make.
+            </p>
+
+
+            <h2>Carrying the Right Lessons Forward</h2>
+
+            <p>
+                Perhaps growing up is partly the process of sorting through what life
+                has taught us. Some lessons become principles. Some become warnings.
+                Some are simply experiences we understand better with time.
+            </p>
+
+            <p>
+                The goal is not to reject everything that came before. It is to become
+                thoughtful about what deserves to continue.
+            </p>
+
+            <p class="closing">
+                We may be shaped by difficult places, difficult people, and difficult
+                seasons, but we are not required to remain exactly as those experiences
+                left us. We can take the strength, examine the scars they left in our
+                thinking, and continue building a life that is larger than the
+                circumstances that first taught us how to survive.
+            </p>
+
+        </article>
+
+
+        <div class="article-footer">
+
+            <a href="Reflections.html" class="back-link">
+                ← Back to Reflections
+            </a>
+
+            <span class="read-more">
+                Continue exploring TheLightPress
+            </span>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-brand">TheLightPress</div>
+
+        <p>Stories • Ideas • Perspectives</p>
+
+        <div class="footer-links">
+            <a href="Home.html">Home</a>
+            <a href="Stories.html">Stories</a>
+            <a href="Ideas.html">Ideas</a>
+            <a href="Opinions.html">Opinions</a>
+            <a href="Reflections.html">Reflections</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+            © TheLightPress
+        </p>
+
+    </footer>
+
+</body>
+</html>
