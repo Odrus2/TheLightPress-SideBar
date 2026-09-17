@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Obsessed by Better | TheLightPress</title>
+    <meta name="description" content="Obsessed by Better — a reflection on growth, improvement, discipline, and the pursuit of becoming better without losing yourself.">
+    <meta name="author" content="TheLightPress">
+
+    <style>
+        :root {
+            --blue: #0878d1;
+            --dark-blue: #075b9f;
+            --light-blue: #eef7ff;
+            --text: #1d2733;
+            --muted: #687584;
+            --border: #dce5ed;
+            --white: #ffffff;
+            --background: #f6f9fc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1050px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        .brand-tagline {
+            font-size: 0.78rem;
+            color: var(--muted);
+            letter-spacing: 0.04em;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            padding: 8px 12px;
+            border-radius: 7px;
+            font-size: 0.9rem;
+            color: #43515f;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: var(--light-blue);
+            color: var(--blue);
+        }
+
+        main {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 55px 24px 80px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .category {
+            display: inline-block;
+            margin-bottom: 17px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: var(--light-blue);
+            color: var(--blue);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            line-height: 1.12;
+            color: #172331;
+            margin-bottom: 18px;
+        }
+
+        .subtitle {
+            max-width: 680px;
+            margin: auto;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .article-meta {
+            margin-top: 18px;
+            color: #7b8793;
+            font-size: 0.86rem;
+        }
+
+        .cover {
+            margin: 38px 0 45px;
+            min-height: 330px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(8, 120, 209, 0.12), rgba(8, 120, 209, 0.02)),
+                var(--white);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 35px;
+        }
+
+        .cover-inner {
+            max-width: 560px;
+        }
+
+        .cover-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .cover-text {
+            color: var(--muted);
+        }
+
+        .article {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(25px, 5vw, 50px);
+        }
+
+        .article p {
+            margin-bottom: 24px;
+            font-size: 1.04rem;
+        }
+
+        .article h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.8rem;
+            line-height: 1.3;
+            margin: 42px 0 18px;
+            color: #182634;
+        }
+
+        .article h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.35rem;
+            margin: 30px 0 12px;
+        }
+
+        .lead {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.3rem !important;
+            line-height: 1.65;
+            color: #344454;
+        }
+
+        blockquote {
+            margin: 35px 0;
+            padding: 22px 25px;
+            border-left: 4px solid var(--blue);
+            background: var(--light-blue);
+            color: #29435a;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.3rem;
+            line-height: 1.55;
+        }
+
+        .closing {
+            margin-top: 45px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .article-footer {
+            margin-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--blue);
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            background: var(--light-blue);
+        }
+
+        .read-more {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #15202b;
+            color: #c9d2da;
+            padding: 35px 24px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: Georgia, "Times New Roman", serif;
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 700px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                justify-content: flex-start;
+                width: 100%;
+            }
+
+            main {
+                padding-top: 38px;
+            }
+
+            .cover {
+                min-height: 240px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+
+            <a href="Home.html" class="brand">
+                <span class="brand-name">TheLightPress</span>
+                <span class="brand-tagline">Stories • Ideas • Perspectives</span>
+            </a>
+
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="Stories.html">Stories</a>
+                <a href="Ideas.html">Ideas</a>
+                <a href="Opinions.html">Opinions</a>
+                <a href="Reflections.html" class="active">Reflections</a>
+                <a href="Search.html">Search</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- Main Article -->
+    <main>
+
+        <div class="article-header">
+
+            <span class="category">Reflection</span>
+
+            <h1>Obsessed by Better</h1>
+
+            <p class="subtitle">
+                A reflection on improvement, ambition, discipline, and the quiet pursuit of becoming better.
+            </p>
+
+            <p class="article-meta">
+                TheLightPress · Reflections
+            </p>
+
+        </div>
+
+
+        <!-- Cover area
+             Replace this section with an image later if you want one.
+        -->
+        <div class="cover">
+            <div class="cover-inner">
+                <div class="cover-title">Obsessed by Better</div>
+                <p class="cover-text">
+                    There is a difference between wanting more and refusing to stop growing.
+                </p>
+            </div>
+        </div>
+
+
+        <article class="article">
+
+            <p class="lead">
+                There is a particular kind of restlessness that comes from seeing
+                what something could become and knowing it is not there yet.
+                It is the feeling that says: there is room to improve.
+            </p>
+
+            <p>
+                Being obsessed by better is not necessarily about chasing perfection.
+                It can be about refusing to become comfortable with avoidable mistakes,
+                unfinished thinking, or habits that keep us from making progress.
+            </p>
+
+            <p>
+                Better is a direction, not a destination.
+            </p>
+
+
+            <h2>The Desire to Improve</h2>
+
+            <p>
+                Improvement often begins with dissatisfaction, but not all
+                dissatisfaction is the same. There is a difference between believing
+                that we are not enough and recognizing that something can be done
+                better.
+            </p>
+
+            <p>
+                The first can keep us trapped in comparison. The second can move us
+                toward action.
+            </p>
+
+            <blockquote>
+                “Better is not about becoming someone else. It is about developing
+                what you already have.”
+            </blockquote>
+
+
+            <h2>Small Improvements Matter</h2>
+
+            <p>
+                We sometimes imagine progress as a dramatic transformation. In
+                reality, much of it happens through ordinary decisions repeated over
+                time.
+            </p>
+
+            <p>
+                A better system. A better question. A better habit. A clearer report.
+                A more thoughtful conversation. A skill practiced again after the
+                first attempt did not go well.
+            </p>
+
+            <p>
+                These things may appear small on their own, but they shape the quality
+                of what we eventually produce.
+            </p>
+
+
+            <h2>Do Not Confuse Better With Perfect</h2>
+
+            <p>
+                The pursuit of improvement can become unhealthy when every result is
+                treated as a failure simply because it is not perfect.
+            </p>
+
+            <p>
+                Progress needs room for mistakes. Learning needs room for questions.
+                Building something worthwhile usually involves several versions before
+                the result becomes clear.
+            </p>
+
+            <p>
+                The aim is not to demand perfection from every attempt. The aim is to
+                make the next attempt more informed than the previous one.
+            </p>
+
+
+            <h2>Better Requires Honesty</h2>
+
+            <p>
+                It is difficult to improve something we refuse to examine honestly.
+                Growth requires us to notice what is not working, even when admitting
+                it is uncomfortable.
+            </p>
+
+            <h3>Ask better questions</h3>
+
+            <p>
+                Instead of asking only whether something succeeded, ask why it
+                succeeded, why it failed, and what could be changed next time.
+            </p>
+
+            <h3>Accept useful criticism</h3>
+
+            <p>
+                Other people can sometimes see weaknesses that we have become too
+                familiar with to notice. Not every criticism is correct, but useful
+                feedback can become a powerful tool for improvement.
+            </p>
+
+            <h3>Keep learning</h3>
+
+            <p>
+                Improvement does not end when we become competent. There is always
+                another perspective, another skill, or another way of solving a
+                problem worth exploring.
+            </p>
+
+
+            <h2>When Ambition Becomes a Burden</h2>
+
+            <p>
+                Wanting to improve can also become exhausting when the present moment
+                is never considered good enough.
+            </p>
+
+            <p>
+                There must be space to appreciate what has already been achieved.
+                Rest is not the opposite of progress. Sometimes stepping back gives
+                us the perspective needed to decide what deserves our effort next.
+            </p>
+
+            <p>
+                Being committed to better does not mean being at war with where we
+                are today.
+            </p>
+
+
+            <h2>A Life of Continuous Improvement</h2>
+
+            <p>
+                Perhaps the most useful way to think about improvement is as a habit
+                rather than a finish line.
+            </p>
+
+            <p>
+                Learn something. Apply it. Notice what happens. Adjust. Try again.
+                Then repeat.
+            </p>
+
+            <p>
+                Over time, those small adjustments can change the quality of our work,
+                our decisions, our relationships, and the way we respond to challenges.
+            </p>
+
+            <p class="closing">
+                To be obsessed by better is not to believe that we are never enough.
+                It is to believe that there is always something worth learning,
+                refining, building, or understanding—and to keep moving toward it
+                with patience.
+            </p>
+
+        </article>
+
+
+        <div class="article-footer">
+
+            <a href="Reflections.html" class="back-link">
+                ← Back to Reflections
+            </a>
+
+            <span class="read-more">
+                Continue exploring TheLightPress
+            </span>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-brand">TheLightPress</div>
+
+        <p>Stories • Ideas • Perspectives</p>
+
+        <div class="footer-links">
+            <a href="Home.html">Home</a>
+            <a href="Stories.html">Stories</a>
+            <a href="Ideas.html">Ideas</a>
+            <a href="Opinions.html">Opinions</a>
+            <a href="Reflections.html">Reflections</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+
+        <p style="margin-top: 18px;">
+            © TheLightPress
+        </p>
+
+    </footer>
+
+</body>
+</html>
