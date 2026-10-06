@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Life | TheLightPress</title>
+
+<meta name="description" content="Explore Life at TheLightPress — thoughtful writing about growth, relationships, work, failure, change, purpose and the experiences that shape us.">
+
+<style>
+:root{
+    --blue:#12385d;
+    --bright:#0b63ce;
+    --light:#edf4fa;
+    --text:#172033;
+    --muted:#667085;
+    --border:#dfe6ee;
+    --white:#ffffff;
+    --bg:#f7f9fc;
+    --dark:#102d4b;
+    --shadow:0 10px 30px rgba(20,40,80,.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.7;
+}
+
+a{text-decoration:none;color:inherit}
+
+.container{
+    width:min(1120px,92%);
+    margin:auto;
+}
+
+header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.header-inner{
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    flex-direction:column;
+}
+
+.brand-name{
+    color:var(--bright);
+    font:700 1.55rem Georgia,serif;
+}
+
+.brand-tagline{
+    color:var(--muted);
+    font-size:.76rem;
+}
+
+nav{
+    display:flex;
+    gap:23px;
+}
+
+nav a{
+    color:#4b5565;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+nav a:hover,
+nav a.active{
+    color:var(--bright);
+}
+
+/* HERO */
+
+.hero{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:78px 0 72px;
+}
+
+.hero-inner{
+    max-width:860px;
+}
+
+.eyebrow{
+    display:inline-block;
+    color:var(--bright);
+    background:var(--light);
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:.77rem;
+    font-weight:bold;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    margin-bottom:19px;
+}
+
+.hero h1{
+    font:normal clamp(3rem,7vw,5rem)/1.03 Georgia,serif;
+    letter-spacing:-2px;
+    color:var(--blue);
+    margin-bottom:23px;
+}
+
+.hero p{
+    max-width:740px;
+    color:var(--muted);
+    font-size:1.08rem;
+}
+
+/* INTRO */
+
+.intro{
+    padding:70px 0;
+}
+
+.intro-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:55px;
+    align-items:start;
+}
+
+.intro h2,
+.section-heading h2{
+    font:normal 2.25rem/1.2 Georgia,serif;
+    color:var(--blue);
+    margin-bottom:17px;
+}
+
+.intro p{
+    color:#4b5565;
+    margin-bottom:17px;
+}
+
+.quote-card{
+    background:var(--dark);
+    color:white;
+    padding:34px;
+    border-radius:15px;
+    box-shadow:var(--shadow);
+}
+
+.quote-mark{
+    font:4rem/.8 Georgia,serif;
+    opacity:.45;
+    margin-bottom:14px;
+}
+
+.quote-card blockquote{
+    font:1.5rem/1.4 Georgia,serif;
+}
+
+.quote-card p{
+    color:#b9c7d6;
+    font-size:.8rem;
+    margin-top:18px;
+    margin-bottom:0;
+}
+
+/* AREAS */
+
+.areas{
+    background:#fff;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:70px 0;
+}
+
+.section-heading{
+    max-width:740px;
+    margin-bottom:38px;
+}
+
+.section-heading p{
+    color:var(--muted);
+}
+
+.area-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.area{
+    border:1px solid var(--border);
+    background:var(--bg);
+    border-radius:14px;
+    padding:26px;
+    transition:.2s;
+}
+
+.area:hover{
+    transform:translateY(-3px);
+    box-shadow:var(--shadow);
+}
+
+.area-number{
+    color:var(--bright);
+    font-size:.75rem;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:12px;
+}
+
+.area h3{
+    font:1.25rem Georgia,serif;
+    color:var(--blue);
+    margin-bottom:8px;
+}
+
+.area p{
+    color:var(--muted);
+    font-size:.88rem;
+}
+
+/* FEATURED */
+
+.featured{
+    padding:75px 0;
+}
+
+.featured-grid{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:22px;
+}
+
+.story-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+.story-body{
+    padding:28px;
+}
+
+.story-label{
+    color:var(--bright);
+    font-size:.74rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    margin-bottom:10px;
+}
+
+.story-card h3{
+    font:1.6rem/1.25 Georgia,serif;
+    color:var(--blue);
+    margin-bottom:12px;
+}
+
+.story-card p{
+    color:var(--muted);
+    font-size:.9rem;
+    margin-bottom:20px;
+}
+
+.read-link{
+    color:var(--bright);
+    font-size:.85rem;
+    font-weight:bold;
+}
+
+.story-stack{
+    display:grid;
+    gap:22px;
+}
+
+/* REFLECTION */
+
+.reflection{
+    background:var(--dark);
+    color:white;
+    padding:75px 0;
+}
+
+.reflection-inner{
+    max-width:850px;
+}
+
+.reflection .eyebrow{
+    background:rgba(255,255,255,.1);
+    color:#d9eaff;
+}
+
+.reflection h2{
+    font:normal clamp(2.2rem,5vw,3.4rem)/1.15 Georgia,serif;
+    margin-bottom:22px;
+}
+
+.reflection p{
+    color:#b9c7d6;
+    max-width:720px;
+    margin-bottom:20px;
+}
+
+.reflection-link{
+    display:inline-block;
+    margin-top:10px;
+    border:1px solid rgba(255,255,255,.3);
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    font-size:.88rem;
+    font-weight:bold;
+}
+
+.reflection-link:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* QUESTIONS */
+
+.questions{
+    padding:70px 0;
+}
+
+.question-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px 25px;
+}
+
+.question{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    color:var(--blue);
+    font:1.05rem Georgia,serif;
+    box-shadow:var(--shadow);
+}
+
+/* CTA */
+
+.cta{
+    background:#fff;
+    border-top:1px solid var(--border);
+    padding:70px 0;
+    text-align:center;
+}
+
+.cta-inner{
+    max-width:720px;
+    margin:auto;
+}
+
+.cta h2{
+    font:normal 2.2rem Georgia,serif;
+    color:var(--blue);
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.cta-button{
+    display:inline-block;
+    background:var(--bright);
+    color:#fff;
+    padding:12px 21px;
+    border-radius:8px;
+    font-size:.9rem;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#0b111d;
+    color:#c8d0dc;
+    padding:35px 0;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.footer-brand{
+    color:#fff;
+    font:700 1.2rem Georgia,serif;
+}
+
+.footer-text{
+    color:#8f9aaa;
+    font-size:.82rem;
+    margin-top:3px;
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    font-size:.82rem;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+    .intro-grid,
+    .featured-grid{
+        grid-template-columns:1fr;
+    }
+
+    .area-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    nav{display:none}
+
+    .hero,
+    .intro,
+    .areas,
+    .featured,
+    .reflection,
+    .questions,
+    .cta{
+        padding:55px 0;
+    }
+
+    .area-grid,
+    .question-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container header-inner">
+
+<a href="Home.html" class="brand">
+    <span class="brand-name">TheLightPress</span>
+    <span class="brand-tagline">Stories • Ideas • Perspectives</span>
+</a>
+
+<nav>
+    <a href="Home.html">Home</a>
+    <a href="Stories.html">Stories</a>
+    <a href="Ideas.html">Ideas</a>
+    <a href="Opinions.html">Opinions</a>
+    <a href="About.html">About</a>
+    <a href="Contact.html">Contact</a>
+</nav>
+
+</div>
+</header>
+
+
+<section class="hero">
+<div class="container">
+
+<div class="hero-inner">
+
+<span class="eyebrow">Life</span>
+
+<h1>
+Life as we experience it.
+</h1>
+
+<p>
+Life is made of ordinary days, difficult seasons, unexpected turns,
+relationships, work, choices, failures, discoveries and moments we
+remember long after they have passed. The Life section of TheLightPress
+looks at those experiences and asks what they can teach us.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="intro">
+
+<div class="container">
+
+<div class="intro-grid">
+
+<div>
+
+<h2>
+There is more to life than simply getting through it.
+</h2>
+
+<p>
+Some experiences seem small while we are living them, yet they can change
+the way we see ourselves. A conversation can stay with us for years. A
+failure can redirect a future. A difficult season can reveal strengths we
+did not know we had.
+</p>
+
+<p>
+TheLightPress uses the Life section to explore these experiences honestly
+and thoughtfully. It is a place for stories and reflections about the
+things people face, the choices they make and the lessons they carry
+forward.
+</p>
+
+<p>
+Not every experience has a simple lesson. Sometimes life is complicated.
+That is part of what makes it worth examining.
+</p>
+
+</div>
+
+<div class="quote-card">
+
+<div class="quote-mark">“</div>
+
+<blockquote>
+The life we understand is not only the life we have lived, but also the
+life we have taken time to reflect upon.
+</blockquote>
+
+<p>
+A perspective behind the Life section of TheLightPress.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="areas">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="eyebrow">Explore Life</span>
+
+<h2>
+The experiences that shape us.
+</h2>
+
+<p>
+Life has many dimensions. These are some of the areas TheLightPress can
+explore through stories, reflections and practical perspectives.
+</p>
+
+</div>
+
+
+<div class="area-grid">
+
+<div class="area">
+<div class="area-number">01</div>
+<h3>Growth</h3>
+<p>
+Becoming wiser, stronger and more aware through the experiences we pass
+through.
+</p>
+</div>
+
+<div class="area">
+<div class="area-number">02</div>
+<h3>Relationships</h3>
+<p>
+Friendship, family, trust, distance, conflict and the people who influence
+our lives.
+</p>
+</div>
+
+<div class="area">
+<div class="area-number">03</div>
+<h3>Work &amp; Ambition</h3>
+<p>
+Building a career, pursuing goals, dealing with pressure and finding
+meaning in what we do.
+</p>
+</div>
+
+<div class="area">
+<div class="area-number">04</div>
+<h3>Failure &amp; Recovery</h3>
+<p>
+What happens when plans fail, opportunities disappear and we have to find
+a way forward.
+</p>
+</div>
+
+<div class="area">
+<div class="area-number">05</div>
+<h3>Change</h3>
+<p>
+The transitions that move us from one chapter of life into another.
+</p>
+</div>
+
+<div class="area">
+<div class="area-number">06</div>
+<h3>Purpose</h3>
+<p>
+Questions about direction, priorities and the kind of life we want to
+build.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="featured">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="eyebrow">Life stories</span>
+
+<h2>
+Sometimes life teaches us without asking permission.
+</h2>
+
+<p>
+The stories we tell can help us recognize experiences that are easy to
+overlook while we are living through them.
+</p>
+
+</div>
+
+
+<div class="featured-grid">
+
+<article class="story-card">
+
+<div class="story-body">
+
+<div class="story-label">
+Featured reflection
+</div>
+
+<h3>
+The things we learn when life does not go according to plan
+</h3>
+
+<p>
+Sometimes the moments we never planned become the ones that teach us the
+most. When expectations meet reality, we are forced to reconsider what we
+thought we knew about ourselves, our plans and the road ahead.
+</p>
+
+<a href="Reflection-One.html" class="read-link">
+Read the reflection →
+</a>
+
+</div>
+
+</article>
+
+
+<div class="story-stack">
+
+<article class="story-card">
+
+<div class="story-body">
+
+<div class="story-label">
+Perspective
+</div>
+
+<h3>
+What difficult seasons can reveal
+</h3>
+
+<p>
+A difficult period can change our priorities and show us which things
+actually matter.
+</p>
+
+<a href="Reflection.html" class="read-link">
+Explore reflections →
+</a>
+
+</div>
+
+</article>
+
+
+<article class="story-card">
+
+<div class="story-body">
+
+<div class="story-label">
+Ideas
+</div>
+
+<h3>
+When starting again becomes necessary
+</h3>
+
+<p>
+Sometimes moving forward does not mean returning to where we stopped.
+</p>
+
+<a href="Ideas.html" class="read-link">
+Explore ideas →
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="reflection">
+
+<div class="container">
+
+<div class="reflection-inner">
+
+<span class="eyebrow">A different way of looking</span>
+
+<h2>
+Not every chapter needs to make sense while you are living it.
+</h2>
+
+<p>
+There are seasons in which progress is obvious and seasons in which simply
+continuing requires courage. The meaning of an experience may only become
+clear after some distance.
+</p>
+
+<p>
+Life is not always a straight line. It is often a collection of chapters,
+some chosen and others forced upon us. What matters is what we do with the
+chapter we are in.
+</p>
+
+<a href="Reflection.html" class="reflection-link">
+Read more reflections →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="questions">
+
+<div class="container">
+
+<div class="section-heading">
+
+<span class="eyebrow">Questions about life</span>
+
+<h2>
+Questions worth carrying with us.
+</h2>
+
+<p>
+The Life section is not about pretending to have every answer. Sometimes
+the value is in asking better questions.
+</p>
+
+</div>
+
+
+<div class="question-grid">
+
+<div class="question">
+What does it mean to live a good life?
+</div>
+
+<div class="question">
+How do we know when it is time to change direction?
+</div>
+
+<div class="question">
+What do difficult experiences leave behind?
+</div>
+
+<div class="question">
+How much of our future is shaped by today's choices?
+</div>
+
+<div class="question">
+What makes a relationship worth protecting?
+</div>
+
+<div class="question">
+Can starting over be a form of progress?
+</div>
+
+<div class="question">
+What do we learn when our plans fail?
+</div>
+
+<div class="question">
+What kind of person are our experiences making us?
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-inner">
+
+<h2>
+Keep reading. Keep living. Keep thinking.
+</h2>
+
+<p>
+TheLightPress brings together stories, ideas, opinions, reflections and
+perspectives about the experiences that make us human.
+</p>
+
+<a href="Stories.html" class="cta-button">
+Explore TheLightPress →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+
+<div class="footer-brand">
+TheLightPress
+</div>
+
+<div class="footer-text">
+Stories • Ideas • Perspectives
+</div>
+
+</div>
+
+<div class="footer-links">
+
+<a href="Home.html">Home</a>
+<a href="Stories.html">Stories</a>
+<a href="Ideas.html">Ideas</a>
+<a href="Opinions.html">Opinions</a>
+<a href="About.html">About</a>
+<a href="Contact.html">Contact</a>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
