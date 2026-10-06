@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophy | TheLightPress</title>
+<meta name="description" content="Explore philosophy at TheLightPress — reflections on life, human nature, choices, meaning and the questions that shape how we see the world.">
+<style>
+:root{--blue:#12385d;--bright:#0b63ce;--light:#edf4fa;--text:#172033;--muted:#667085;--border:#dfe6ee;--white:#fff;--bg:#f7f9fc;--dark:#102d4b;--shadow:0 10px 30px rgba(20,40,80,.06)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.7}
+a{text-decoration:none;color:inherit}.container{width:min(1120px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
+.header-inner{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.brand{display:flex;flex-direction:column}.brand-name{color:var(--bright);font:700 1.55rem Georgia,serif}.brand-tagline{color:var(--muted);font-size:.76rem}
+nav{display:flex;gap:23px}nav a{color:#4b5565;font-size:.9rem;font-weight:600}nav a:hover,nav a.active{color:var(--bright)}
+.hero{background:#fff;border-bottom:1px solid var(--border);padding:78px 0 72px}.hero-inner{max-width:850px}
+.eyebrow{display:inline-block;color:var(--bright);background:var(--light);padding:7px 14px;border-radius:30px;font-size:.77rem;font-weight:bold;letter-spacing:.5px;text-transform:uppercase;margin-bottom:19px}
+.hero h1{font:normal clamp(3rem,7vw,5rem)/1.03 Georgia,serif;letter-spacing:-2px;color:var(--blue);margin-bottom:23px}.hero p{max-width:720px;color:var(--muted);font-size:1.08rem}
+.intro,.articles,.cta{padding:70px 0}.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px}
+.intro h2,.section-heading h2{font:normal 2.25rem/1.2 Georgia,serif;color:var(--blue);margin-bottom:17px}.intro p{color:#4b5565;margin-bottom:17px}
+.quote-card{background:var(--dark);color:white;padding:34px;border-radius:15px;box-shadow:var(--shadow)}.quote-mark{font:4rem/0.8 Georgia,serif;opacity:.45;margin-bottom:14px}.quote-card blockquote{font:1.5rem/1.4 Georgia,serif}.quote-card p{color:#b9c7d6;font-size:.8rem;margin-top:18px}
+.topics{background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:70px 0}.section-heading{max-width:730px;margin-bottom:38px}.section-heading p{color:var(--muted)}
+.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.topic{border:1px solid var(--border);background:var(--bg);border-radius:14px;padding:26px;transition:.2s}.topic:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.topic-number{color:var(--bright);font-size:.75rem;font-weight:bold;letter-spacing:1px;margin-bottom:12px}.topic h3,.article-card h3{font-family:Georgia,serif;color:var(--blue)}.topic h3{font-size:1.25rem;margin-bottom:8px}.topic p,.article-card p{color:var(--muted);font-size:.88rem}
+.article-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px}.article-card{background:#fff;border:1px solid var(--border);border-radius:15px;overflow:hidden;box-shadow:var(--shadow)}.article-body{padding:28px}.article-label{color:var(--bright);font-size:.74rem;font-weight:bold;text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px}.article-card h3{font-size:1.6rem;line-height:1.25;margin-bottom:12px}.article-card p{margin-bottom:20px}.read-link{color:var(--bright);font-size:.85rem;font-weight:bold}.article-stack{display:grid;gap:22px}
+.questions{background:var(--dark);color:white;padding:75px 0}.questions-inner{max-width:850px}.questions .eyebrow{background:rgba(255,255,255,.1);color:#d9eaff}.questions h2{font:normal clamp(2.2rem,5vw,3.4rem)/1.15 Georgia,serif;margin-bottom:22px}.questions-inner>p{color:#b9c7d6;max-width:700px;margin-bottom:32px}.question-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 25px}.question{border-top:1px solid rgba(255,255,255,.14);padding:17px 0;color:#e4eaf1;font:1.05rem Georgia,serif}
+.cta{text-align:center}.cta-inner{max-width:720px;margin:auto}.cta h2{font:normal 2.2rem Georgia,serif;color:var(--blue);margin-bottom:15px}.cta p{color:var(--muted);margin-bottom:25px}.cta-button{display:inline-block;background:var(--bright);color:#fff;padding:12px 21px;border-radius:8px;font-size:.9rem;font-weight:bold}
+footer{background:#0b111d;color:#c8d0dc;padding:35px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-brand{color:#fff;font:700 1.2rem Georgia,serif}.footer-text{color:#8f9aaa;font-size:.82rem;margin-top:3px}.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:.82rem}.footer-links a:hover{color:#fff}
+@media(max-width:850px){.intro-grid,.article-grid{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){nav{display:none}.hero,.intro,.topics,.articles,.questions,.cta{padding:55px 0}.topic-grid,.question-list{grid-template-columns:1fr}.footer-inner{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<header><div class="container header-inner">
+<a href="Home.html" class="brand"><span class="brand-name">TheLightPress</span><span class="brand-tagline">Stories • Ideas • Perspectives</span></a>
+<nav><a href="Home.html">Home</a><a href="Stories.html">Stories</a><a href="Ideas.html">Ideas</a><a href="Opinions.html">Opinions</a><a href="About.html">About</a><a href="Contact.html">Contact</a></nav>
+</div></header>
+
+<section class="hero"><div class="container"><div class="hero-inner">
+<span class="eyebrow">Philosophy</span>
+<h1>Questions that make us think.</h1>
+<p>Philosophy at TheLightPress is about examining life, human nature, choices, meaning and the assumptions we often accept without questioning.</p>
+</div></div></section>
+
+<section class="intro"><div class="container"><div class="intro-grid">
+<div>
+<h2>Philosophy begins with paying attention.</h2>
+<p>We live through thousands of experiences, yet many pass without examination. We make decisions, form opinions, build relationships, experience failure and success, and develop beliefs about what life means.</p>
+<p>Philosophy gives us a reason to pause. It asks us to look beneath the obvious answer and examine the ideas behind the way we live.</p>
+<p>TheLightPress explores these questions through accessible writing. You do not need to be a philosopher to engage with philosophy. You only need to be willing to think.</p>
+</div>
+<div class="quote-card"><div class="quote-mark">“</div><blockquote>The questions we ask can change the way we see the answers we have already accepted.</blockquote><p>A principle behind the philosophy section of TheLightPress.</p></div>
+</div></div></section>
+
+<section class="topics"><div class="container">
+<div class="section-heading"><span class="eyebrow">Explore the subjects</span><h2>What do we think about?</h2><p>Philosophy can begin anywhere. These are some of the questions and subjects that may appear throughout TheLightPress.</p></div>
+<div class="topic-grid">
+<div class="topic"><div class="topic-number">01</div><h3>Human Nature</h3><p>Why people behave the way they do, what shapes us and whether we can truly change.</p></div>
+<div class="topic"><div class="topic-number">02</div><h3>Meaning &amp; Purpose</h3><p>Questions about purpose, direction, significance and what makes a life meaningful.</p></div>
+<div class="topic"><div class="topic-number">03</div><h3>Choices</h3><p>Freedom, responsibility, consequences and the decisions that gradually shape a life.</p></div>
+<div class="topic"><div class="topic-number">04</div><h3>Good &amp; Wrong</h3><p>The difficult questions surrounding morality, values, responsibility and judgement.</p></div>
+<div class="topic"><div class="topic-number">05</div><h3>Knowledge</h3><p>What we know, what we believe and how we can tell the difference between the two.</p></div>
+<div class="topic"><div class="topic-number">06</div><h3>Life &amp; Death</h3><p>Reflections on existence, mortality, time and the experiences that give life urgency.</p></div>
+</div></div></section>
+
+<section class="articles"><div class="container">
+<div class="section-heading"><span class="eyebrow">From TheLightPress</span><h2>Philosophy through everyday life.</h2><p>Great philosophical questions do not always arrive in a classroom. Sometimes they appear in ordinary experiences.</p></div>
+<div class="article-grid">
+<article class="article-card"><div class="article-body"><div class="article-label">Featured reflection</div><h3>What do difficult moments reveal about us?</h3><p>When life moves in a direction we did not expect, the plans we depended on are tested. What remains can tell us something about who we are, what we value and what we are capable of becoming.</p><a href="Reflection.html" class="read-link">Explore reflections →</a></div></article>
+<div class="article-stack">
+<article class="article-card"><div class="article-body"><div class="article-label">Perspective</div><h3>Are our opinions really our own?</h3><p>The people around us influence the ideas we call our own. Thinking independently begins with noticing that influence.</p><a href="Opinions.html" class="read-link">Explore opinions →</a></div></article>
+<article class="article-card"><div class="article-body"><div class="article-label">Ideas</div><h3>What can failure teach us?</h3><p>Failure can be an ending, a lesson, a redirection or all three. The meaning we give it matters.</p><a href="Ideas.html" class="read-link">Explore ideas →</a></div></article>
+</div></div></div></section>
+
+<section class="questions"><div class="container"><div class="questions-inner">
+<span class="eyebrow">Questions worth asking</span><h2>Sometimes the question is more important than the answer.</h2><p>TheLightPress encourages readers to question, examine and think. Not every question needs an immediate answer.</p>
+<div class="question-list">
+<div class="question">What makes a person who they are?</div>
+<div class="question">Can people truly change?</div>
+<div class="question">What do we owe one another?</div>
+<div class="question">Is success the same as a meaningful life?</div>
+<div class="question">How much of our life is shaped by our choices?</div>
+<div class="question">Can failure become a form of progress?</div>
+<div class="question">When should we question what everyone accepts?</div>
+<div class="question">What makes something worth believing?</div>
+</div></div></div></section>
+
+<section class="cta"><div class="container"><div class="cta-inner">
+<h2>Keep exploring.</h2>
+<p>Philosophy is not only something to read. It is something to carry into the way we understand ourselves, other people and the world around us.</p>
+<a href="Stories.html" class="cta-button">Explore TheLightPress →</a>
+</div></div></section>
+
+<footer><div class="container footer-inner">
+<div><div class="footer-brand">TheLightPress</div><div class="footer-text">Stories • Ideas • Perspectives</div></div>
+<div class="footer-links"><a href="Home.html">Home</a><a href="Stories.html">Stories</a><a href="Ideas.html">Ideas</a><a href="Opinions.html">Opinions</a><a href="About.html">About</a><a href="Contact.html">Contact</a></div>
+</div></footer>
+
+</body>
+</html>
